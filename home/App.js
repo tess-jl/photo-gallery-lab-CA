@@ -20,6 +20,7 @@ class App extends Component {
 
         const filterCreatures = new FilterCreatures({
             creatures: creatures,
+            
             onFilter: ({ 
                 keywordFilterValue,
                 hornsFilterValue }) => {

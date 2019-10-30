@@ -18,21 +18,23 @@ class FilterCreatures extends Component {
     }
 
     renderHTML() {
-        return /*html*/`
+        const creatureArray = this.props.creatures; 
+
+        const keywordArray = creatureArray.map(creature => creature.keyword); 
+        const uniqueKeywordArry = [...new Set(keywordArray)]; 
+        const uniqueKeywordHTMLElementStrings = uniqueKeywordArry.map(keyword => `<option value="${keyword}">${keyword}</options>`);
+
+        let keywordSelectString = '';
+        
+        uniqueKeywordHTMLElementStrings.forEach(string => {
+            keywordSelectString += string; 
+        });
+
+        return `
         <div>
             <select id="creature-keyword-filter">
-                <option value="" selected>All Keywords</option>
-                <option value="narwhal">narwhal</option>
-                <option value="rhino">rhino</option>
-                <option value="unicorn">unicorn</option>
-                <option value="unilego">unilego</option>
-                <option value="triceratops">triceratops</option>
-                <option value="markhor">markhor</option>
-                <option value="mouflon">mouflon</option>
-                <option value="addax">addax</option>
-                <option value="chameleon">chameleon</option>
-                <option value="lizard">lizard</option>
-                <option value="dragon">dragon</option>
+            <option value="" selected>All Keywords</options>
+            ${keywordSelectString}
             </select>
             <select id="creature-horns-filter">
                 <option value="" selected>All horn numbers</option>
