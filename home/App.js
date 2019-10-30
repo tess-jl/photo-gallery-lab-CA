@@ -20,13 +20,34 @@ class App extends Component {
 
         const filterCreatures = new FilterCreatures({
             creatures: creatures,
-            onFilter: (creatureKeyword) => {
+            onFilter: ({ 
+                keywordFilterValue,
+                hornsFilterValue }) => {
+        
                 let filteredCreatures;
-                if (!creatureKeyword) {
+                if (!keywordFilterValue && !hornsFilterValue) {
                     filteredCreatures = creatures;
                 } else {
                     filteredCreatures = creatures.filter(creature => {
-                        return creature.keyword === creatureKeyword;
+
+                        const filterHornNumber = Number(hornsFilterValue);
+                        let keywordBoolean = false; 
+                        let hornsBoolean = false; 
+
+                        if (keywordFilterValue) {
+                            keywordBoolean = (creature.keyword === keywordFilterValue); 
+                        } else {
+                            keywordBoolean = true; 
+                        }
+
+                        if (hornsFilterValue) {
+                            hornsBoolean = (creature.horns === filterHornNumber); 
+                        } else {
+                            hornsBoolean = true; 
+                        }
+                        return keywordBoolean && hornsBoolean; 
+
+                            
                     });
                 }
 
@@ -35,10 +56,10 @@ class App extends Component {
             }
         });
 
-        const filterCatsDOM = filterCreatures.renderDOM();
+        const filterCreatureDOM = filterCreatures.renderDOM();
 
         const optionsSection = dom.querySelector('.options-section');
-        optionsSection.appendChild(filterCatsDOM);
+        optionsSection.appendChild(filterCreatureDOM);
     }
 
     renderHTML() {
