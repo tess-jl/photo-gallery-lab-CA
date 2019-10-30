@@ -1,7 +1,7 @@
 import Component from '../Component.js';
 import Header from './Header.js';
-import CreatureList from './CatList.js';
-import FilterCreatures from './FilterCats.js';
+import CreatureList from './CreatureList.js';
+import FilterCreatures from './FilterCreatures.js';
 import creatures from '../data/images.js';
 
 class App extends Component {
@@ -51,7 +51,7 @@ class App extends Component {
                     <section class="options-section">
                         <!-- FilterCreatures goes here -->
                     </section>
-                    
+
                     <section class="list-section">
                         <!-- CreatureList goes here -->
                     </section>
