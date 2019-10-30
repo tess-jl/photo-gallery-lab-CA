@@ -1,4 +1,4 @@
-import CreatureItem from '../home/creatureItem.js';
+import CreatureItem from '../home/CreatureItem.js';
 
 
 const test = QUnit.test;
