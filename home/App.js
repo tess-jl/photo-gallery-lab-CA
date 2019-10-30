@@ -18,7 +18,7 @@ class App extends Component {
         listSection.appendChild(creatureListDOM);
 
 
-        const filterCats = new FilterCreatures({
+        const filterCreatures = new FilterCreatures({
             creatures: creatures,
             onFilter: (creatureKeyword) => {
                 let filteredCreatures;
@@ -36,7 +36,7 @@ class App extends Component {
             }
         });
 
-        const filterCatsDOM = filterCats.renderDOM();
+        const filterCatsDOM = filterCreatures.renderDOM();
 
         const optionsSection = dom.querySelector('.options-section');
         optionsSection.appendChild(filterCatsDOM);

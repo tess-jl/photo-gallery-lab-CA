@@ -2,7 +2,7 @@ import Component from '../Component.js';
 
 class CreatureItem extends Component {
     renderHTML() {
-        const creature = this.props.creatures;
+        const creature = this.props.creature;
 
         return /*html*/`
             <li class="creature-item">
