@@ -1,4 +1,4 @@
-import renderCreatureItem from '../home/render-creature-item.js';
+import CreatureItem from '../home/creatureItem.js';
 
 
 const test = QUnit.test;
@@ -30,7 +30,8 @@ test('renders html from data', assert => {
     `;
 
     // act
-    const html = renderCreatureItem(creature);
+    const creatureItem = new CreatureItem({ creature });
+    const html = creatureItem.renderHTML();
     
     // assert
     assert.htmlEqual(html, expected);
