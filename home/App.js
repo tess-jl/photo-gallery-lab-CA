@@ -24,8 +24,7 @@ class App extends Component {
                 let filteredCreatures;
                 if (!creatureKeyword) {
                     filteredCreatures = creatures;
-                }
-                else {
+                } else {
                     filteredCreatures = creatures.filter(creature => {
                         return creature.keyword === creatureKeyword;
                     });
