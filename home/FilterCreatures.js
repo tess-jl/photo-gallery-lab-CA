@@ -9,7 +9,6 @@ class FilterCreatures extends Component {
             const keywordFilterValue = document.getElementById('creature-keyword-filter').value;
             const hornsFilterValue = document.getElementById('creature-horns-filter').value;
             
-            
             onFilter({
                 keywordFilterValue,
                 hornsFilterValue,
@@ -21,8 +20,8 @@ class FilterCreatures extends Component {
         const creatureArray = this.props.creatures; 
 
         const keywordArray = creatureArray.map(creature => creature.keyword); 
-        const uniqueKeywordArry = [...new Set(keywordArray)]; 
-        const uniqueKeywordHTMLElementStrings = uniqueKeywordArry.map(keyword => `<option value="${keyword}">${keyword}</options>`);
+        const uniqueKeywordArray = [...new Set(keywordArray)]; 
+        const uniqueKeywordHTMLElementStrings = uniqueKeywordArray.map(keyword => `<option value="${keyword}">${keyword}</options>`);
 
         let keywordSelectString = '';
         

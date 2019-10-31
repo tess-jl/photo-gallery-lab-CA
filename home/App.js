@@ -1,5 +1,6 @@
 import Component from '../Component.js';
 import Header from './Header.js';
+import Footer from './Footer.js';
 import CreatureList from './CreatureList.js';
 import FilterCreatures from './FilterCreatures.js';
 import creatures from '../data/images.js';
@@ -7,7 +8,7 @@ import creatures from '../data/images.js';
 class App extends Component {
 
     onRender(dom) {
-        const header = new Header({});
+        const header = new Header();
         const headerDOM = header.renderDOM();
         dom.prepend(headerDOM);
 
@@ -19,8 +20,9 @@ class App extends Component {
 
 
         const filterCreatures = new FilterCreatures({
-            creatures: creatures,
-            
+            //since key and value are the same just need to list one word
+            creatures,
+            // onFilter is the key in the key/value pair 
             onFilter: ({ 
                 keywordFilterValue,
                 hornsFilterValue }) => {
@@ -58,9 +60,12 @@ class App extends Component {
         });
 
         const filterCreatureDOM = filterCreatures.renderDOM();
-
         const optionsSection = dom.querySelector('.options-section');
         optionsSection.appendChild(filterCreatureDOM);
+
+        const footer = new Footer();
+        const footerDOM = footer.renderDOM();
+        dom.append(footerDOM);
     }
 
     renderHTML() {
@@ -73,9 +78,18 @@ class App extends Component {
                         <!-- FilterCreatures goes here -->
                     </section>
 
+                    <section class="add-new-creature">
+                        <!-- AddCreature goes here -->
+                    </section>
+
                     <section class="list-section">
                         <!-- CreatureList goes here -->
                     </section>
+
+                    <section class="footer-section">
+                        <!-- Footer goes here -->
+                    </section>
+
                 </main>
 
             </div>

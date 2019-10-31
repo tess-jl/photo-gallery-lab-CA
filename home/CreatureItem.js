@@ -2,19 +2,19 @@ import Component from '../Component.js';
 
 class CreatureItem extends Component {
     renderHTML() {
-        const creature = this.props.creature;
+        const { title, description, url, keyword, horns } = this.props.creature;
 
         return /*html*/`
             <li class="creature-item">
                 <div class="info-container">
-                    <h2>${creature.title}</h2>
-                    <p class="creature-type">${creature.keyword}</p>
+                    <h2>${title}</h2>
+                    <p class="creature-type">${keyword}</p>
                 </div>
                 <div class="image-container">
-                    <img src="${creature.url}" alt="${creature.title} image">
+                    <img src="${url}" alt="${title} image">
                 </div>
-                <p class="num-horns">${creature.horns}</p>
-                <p class="description">${creature.description}</p>
+                <p class="num-horns">${horns}</p>
+                <p class="description">${description}</p>
             </li>
         `;
     }
