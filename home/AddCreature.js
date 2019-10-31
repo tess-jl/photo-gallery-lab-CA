@@ -2,14 +2,10 @@ import Component from '../Component.js';
 
 class AddCreature extends Component {
 
- 
 
     //makes the form
     onRender(form) {
-    
         const { onSubmit } = this.props; 
-
-        
 
         form.addEventListener('submit', (event) => {
             event.preventDefault(); 
@@ -23,8 +19,8 @@ class AddCreature extends Component {
                 description: formData.get('creature-description')
             }; 
             
+            console.log(creatureObject, 'creature obj'); 
             onSubmit(creatureObject); 
-            
         });
     }
 

@@ -19,6 +19,20 @@ class App extends Component {
         listSection.appendChild(creatureListDOM);
 
 
+
+        const addCreature = new AddCreature({
+            creatures: creatures, 
+            onSubmit: formObject => {
+                creatures.push(formObject); 
+                creatureList.update(creatures);
+            }
+        });
+
+        const addCreatureDOM = addCreature.renderDOM();
+        const formSection = dom.querySelector('.form-section');
+        formSection.appendChild(addCreatureDOM);
+
+
         const filterCreatures = new FilterCreatures({
             //since key and value are the same just need to list one word
             creatures,
@@ -58,15 +72,9 @@ class App extends Component {
                 creatureList.update(updateProps);
             }
         });
-
         const filterCreatureDOM = filterCreatures.renderDOM();
         const optionsSection = dom.querySelector('.options-section');
         optionsSection.appendChild(filterCreatureDOM);
-
-        const addCreature = new AddCreature({ creatures });
-        const addCreatureDOM = addCreature.renderDOM();
-        const formSection = dom.querySelector('.form-section');
-        formSection.appendChild(addCreatureDOM);
 
 
         const footer = new Footer();
