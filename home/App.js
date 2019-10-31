@@ -4,6 +4,7 @@ import Footer from './Footer.js';
 import CreatureList from './CreatureList.js';
 import FilterCreatures from './FilterCreatures.js';
 import creatures from '../data/images.js';
+import AddCreature from './AddCreature.js'; 
 
 class App extends Component {
 
@@ -14,7 +15,6 @@ class App extends Component {
 
         const creatureList = new CreatureList({ creatures });
         const creatureListDOM = creatureList.renderDOM();
-
         const listSection = dom.querySelector('.list-section');
         listSection.appendChild(creatureListDOM);
 
@@ -63,6 +63,12 @@ class App extends Component {
         const optionsSection = dom.querySelector('.options-section');
         optionsSection.appendChild(filterCreatureDOM);
 
+        const addCreature = new AddCreature({ creatures });
+        const addCreatureDOM = addCreature.renderDOM();
+        const formSection = dom.querySelector('.form-section');
+        formSection.appendChild(addCreatureDOM);
+
+
         const footer = new Footer();
         const footerDOM = footer.renderDOM();
         dom.append(footerDOM);
@@ -78,7 +84,7 @@ class App extends Component {
                         <!-- FilterCreatures goes here -->
                     </section>
 
-                    <section class="add-new-creature">
+                    <section class="form-section">
                         <!-- AddCreature goes here -->
                     </section>
 
