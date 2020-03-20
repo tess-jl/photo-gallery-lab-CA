@@ -1,4 +1,4 @@
-# Photo Gallery Lab with Component Architecture Lab
+# Photo Gallery with Component Architecture Lab
 
 ### Component-architecture (React-like) JavaScript, HTML, CSS
 
